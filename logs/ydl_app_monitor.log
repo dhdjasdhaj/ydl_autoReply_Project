@@ -1,0 +1,252 @@
+2026-06-09 15:45:21,881 [ERROR] Polling cycle failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 120, in run_once
+    posts = self.crawler.poll(on_post=process_visible_post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 32, in poll
+    if not self._enter_home_qa_section():
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 58, in _enter_home_qa_section
+    self.app.click_first_text(self.settings.home_tab_texts, partial=False)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 169, in click_first_text
+    node = self.find_node_by_text(texts, partial=partial, clickable_preferred=True)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 214, in find_node_by_text
+    for node in self.nodes():
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 128, in nodes
+    source = self.page_source()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 116, in page_source
+    return self._adb_page_source()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 479, in _adb_page_source
+    raise RuntimeError(f"adb uiautomator dump did not return XML hierarchy: {sample}")
+RuntimeError: adb uiautomator dump did not return XML hierarchy: ERROR: could not get idle state.
+2026-06-09 15:46:41,161 [INFO] Clicked home 心声·问答 更多 entry
+2026-06-09 15:46:44,285 [INFO] Clicked target tab: 心声
+2026-06-09 15:50:34,939 [ERROR] Post reply failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_poster.py", line 56, in post_reply
+    self._send_on_current_post(reply_content)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_poster.py", line 129, in _send_on_current_post
+    visible_text = "\n".join(self.app.visible_texts(min_len=1))
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 160, in visible_texts
+    for node in self.nodes():
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 128, in nodes
+    source = self.page_source()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 116, in page_source
+    return self._adb_page_source()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 472, in _adb_page_source
+    raise RuntimeError(f"adb uiautomator dump failed: {completed.stderr.strip()}")
+RuntimeError: adb uiautomator dump failed: error: device offline
+2026-06-09 15:50:34,983 [ERROR] Polling cycle failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 120, in run_once
+    posts = self.crawler.poll(on_post=process_visible_post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 38, in poll
+    posts.extend(self._collect_current_page(on_post))
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 52, in _collect_current_page
+    on_post(post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 118, in process_visible_post
+    self._process_post(post, stats)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 174, in _process_post
+    result = self.poster.post_reply(post, reply_text, reply_kind="post_reply")
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_poster.py", line 67, in post_reply
+    self.app.back()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 330, in back
+    self._adb_run(["shell", "input", "keyevent", "4"], timeout=15)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 397, in _adb_run
+    raise RuntimeError(f"adb command failed: {' '.join(command)}\n{completed.stderr.strip()}")
+RuntimeError: adb command failed: C:\Users\stc_0\Android\Sdk\platform-tools\adb.exe -s 10.162.29.237:41705 shell input keyevent 4
+adb.exe: device offline
+2026-06-09 15:51:35,679 [ERROR] Polling cycle failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 120, in run_once
+    posts = self.crawler.poll(on_post=process_visible_post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 31, in poll
+    self.app.activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 91, in activate_app
+    self._adb_activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 403, in _adb_activate_app
+    self._adb_run(["shell", "am", "start", "-n", component], timeout=30)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 397, in _adb_run
+    raise RuntimeError(f"adb command failed: {' '.join(command)}\n{completed.stderr.strip()}")
+RuntimeError: adb command failed: C:\Users\stc_0\Android\Sdk\platform-tools\adb.exe -s 10.162.29.237:41705 shell am start -n com.cxzapp.yidianling/.activity.SplashActivity
+adb.exe: device offline
+2026-06-09 15:52:36,380 [ERROR] Polling cycle failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 120, in run_once
+    posts = self.crawler.poll(on_post=process_visible_post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 31, in poll
+    self.app.activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 91, in activate_app
+    self._adb_activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 403, in _adb_activate_app
+    self._adb_run(["shell", "am", "start", "-n", component], timeout=30)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 397, in _adb_run
+    raise RuntimeError(f"adb command failed: {' '.join(command)}\n{completed.stderr.strip()}")
+RuntimeError: adb command failed: C:\Users\stc_0\Android\Sdk\platform-tools\adb.exe -s 10.162.29.237:41705 shell am start -n com.cxzapp.yidianling/.activity.SplashActivity
+adb.exe: device offline
+2026-06-09 15:53:36,974 [ERROR] Polling cycle failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 120, in run_once
+    posts = self.crawler.poll(on_post=process_visible_post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 31, in poll
+    self.app.activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 91, in activate_app
+    self._adb_activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 403, in _adb_activate_app
+    self._adb_run(["shell", "am", "start", "-n", component], timeout=30)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 397, in _adb_run
+    raise RuntimeError(f"adb command failed: {' '.join(command)}\n{completed.stderr.strip()}")
+RuntimeError: adb command failed: C:\Users\stc_0\Android\Sdk\platform-tools\adb.exe -s 10.162.29.237:41705 shell am start -n com.cxzapp.yidianling/.activity.SplashActivity
+adb.exe: device offline
+2026-06-09 15:54:37,636 [ERROR] Polling cycle failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 120, in run_once
+    posts = self.crawler.poll(on_post=process_visible_post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 31, in poll
+    self.app.activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 91, in activate_app
+    self._adb_activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 403, in _adb_activate_app
+    self._adb_run(["shell", "am", "start", "-n", component], timeout=30)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 397, in _adb_run
+    raise RuntimeError(f"adb command failed: {' '.join(command)}\n{completed.stderr.strip()}")
+RuntimeError: adb command failed: C:\Users\stc_0\Android\Sdk\platform-tools\adb.exe -s 10.162.29.237:41705 shell am start -n com.cxzapp.yidianling/.activity.SplashActivity
+adb.exe: device offline
+2026-06-09 15:55:38,299 [ERROR] Polling cycle failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 120, in run_once
+    posts = self.crawler.poll(on_post=process_visible_post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 31, in poll
+    self.app.activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 91, in activate_app
+    self._adb_activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 403, in _adb_activate_app
+    self._adb_run(["shell", "am", "start", "-n", component], timeout=30)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 397, in _adb_run
+    raise RuntimeError(f"adb command failed: {' '.join(command)}\n{completed.stderr.strip()}")
+RuntimeError: adb command failed: C:\Users\stc_0\Android\Sdk\platform-tools\adb.exe -s 10.162.29.237:41705 shell am start -n com.cxzapp.yidianling/.activity.SplashActivity
+adb.exe: device offline
+2026-06-09 15:56:39,016 [ERROR] Polling cycle failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 120, in run_once
+    posts = self.crawler.poll(on_post=process_visible_post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 31, in poll
+    self.app.activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 91, in activate_app
+    self._adb_activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 403, in _adb_activate_app
+    self._adb_run(["shell", "am", "start", "-n", component], timeout=30)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 397, in _adb_run
+    raise RuntimeError(f"adb command failed: {' '.join(command)}\n{completed.stderr.strip()}")
+RuntimeError: adb command failed: C:\Users\stc_0\Android\Sdk\platform-tools\adb.exe -s 10.162.29.237:41705 shell am start -n com.cxzapp.yidianling/.activity.SplashActivity
+adb.exe: device offline
+2026-06-09 15:57:39,695 [ERROR] Polling cycle failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 120, in run_once
+    posts = self.crawler.poll(on_post=process_visible_post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 31, in poll
+    self.app.activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 91, in activate_app
+    self._adb_activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 403, in _adb_activate_app
+    self._adb_run(["shell", "am", "start", "-n", component], timeout=30)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 397, in _adb_run
+    raise RuntimeError(f"adb command failed: {' '.join(command)}\n{completed.stderr.strip()}")
+RuntimeError: adb command failed: C:\Users\stc_0\Android\Sdk\platform-tools\adb.exe -s 10.162.29.237:41705 shell am start -n com.cxzapp.yidianling/.activity.SplashActivity
+adb.exe: device offline
+2026-06-09 15:58:40,220 [ERROR] Polling cycle failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 120, in run_once
+    posts = self.crawler.poll(on_post=process_visible_post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 31, in poll
+    self.app.activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 91, in activate_app
+    self._adb_activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 403, in _adb_activate_app
+    self._adb_run(["shell", "am", "start", "-n", component], timeout=30)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 397, in _adb_run
+    raise RuntimeError(f"adb command failed: {' '.join(command)}\n{completed.stderr.strip()}")
+RuntimeError: adb command failed: C:\Users\stc_0\Android\Sdk\platform-tools\adb.exe -s 10.162.29.237:41705 shell am start -n com.cxzapp.yidianling/.activity.SplashActivity
+adb.exe: device offline
+2026-06-09 15:59:40,787 [ERROR] Polling cycle failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 120, in run_once
+    posts = self.crawler.poll(on_post=process_visible_post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 31, in poll
+    self.app.activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 91, in activate_app
+    self._adb_activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 403, in _adb_activate_app
+    self._adb_run(["shell", "am", "start", "-n", component], timeout=30)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 397, in _adb_run
+    raise RuntimeError(f"adb command failed: {' '.join(command)}\n{completed.stderr.strip()}")
+RuntimeError: adb command failed: C:\Users\stc_0\Android\Sdk\platform-tools\adb.exe -s 10.162.29.237:41705 shell am start -n com.cxzapp.yidianling/.activity.SplashActivity
+adb.exe: device offline
+2026-06-09 16:00:41,475 [ERROR] Polling cycle failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 120, in run_once
+    posts = self.crawler.poll(on_post=process_visible_post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 31, in poll
+    self.app.activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 91, in activate_app
+    self._adb_activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 403, in _adb_activate_app
+    self._adb_run(["shell", "am", "start", "-n", component], timeout=30)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 397, in _adb_run
+    raise RuntimeError(f"adb command failed: {' '.join(command)}\n{completed.stderr.strip()}")
+RuntimeError: adb command failed: C:\Users\stc_0\Android\Sdk\platform-tools\adb.exe -s 10.162.29.237:41705 shell am start -n com.cxzapp.yidianling/.activity.SplashActivity
+adb.exe: device offline
+2026-06-09 16:01:42,191 [ERROR] Polling cycle failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 120, in run_once
+    posts = self.crawler.poll(on_post=process_visible_post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 31, in poll
+    self.app.activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 91, in activate_app
+    self._adb_activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 403, in _adb_activate_app
+    self._adb_run(["shell", "am", "start", "-n", component], timeout=30)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 397, in _adb_run
+    raise RuntimeError(f"adb command failed: {' '.join(command)}\n{completed.stderr.strip()}")
+RuntimeError: adb command failed: C:\Users\stc_0\Android\Sdk\platform-tools\adb.exe -s 10.162.29.237:41705 shell am start -n com.cxzapp.yidianling/.activity.SplashActivity
+adb.exe: device offline
+2026-06-09 16:02:42,803 [ERROR] Polling cycle failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 120, in run_once
+    posts = self.crawler.poll(on_post=process_visible_post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 31, in poll
+    self.app.activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 91, in activate_app
+    self._adb_activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 403, in _adb_activate_app
+    self._adb_run(["shell", "am", "start", "-n", component], timeout=30)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 397, in _adb_run
+    raise RuntimeError(f"adb command failed: {' '.join(command)}\n{completed.stderr.strip()}")
+RuntimeError: adb command failed: C:\Users\stc_0\Android\Sdk\platform-tools\adb.exe -s 10.162.29.237:41705 shell am start -n com.cxzapp.yidianling/.activity.SplashActivity
+adb.exe: device '10.162.29.237:41705' not found
+2026-06-09 16:03:43,467 [ERROR] Polling cycle failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 120, in run_once
+    posts = self.crawler.poll(on_post=process_visible_post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 31, in poll
+    self.app.activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 91, in activate_app
+    self._adb_activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 403, in _adb_activate_app
+    self._adb_run(["shell", "am", "start", "-n", component], timeout=30)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 397, in _adb_run
+    raise RuntimeError(f"adb command failed: {' '.join(command)}\n{completed.stderr.strip()}")
+RuntimeError: adb command failed: C:\Users\stc_0\Android\Sdk\platform-tools\adb.exe -s 10.162.29.237:41705 shell am start -n com.cxzapp.yidianling/.activity.SplashActivity
+adb.exe: device '10.162.29.237:41705' not found
+2026-06-09 16:04:44,024 [ERROR] Polling cycle failed
+Traceback (most recent call last):
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\monitor.py", line 120, in run_once
+    posts = self.crawler.poll(on_post=process_visible_post)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_crawler.py", line 31, in poll
+    self.app.activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 91, in activate_app
+    self._adb_activate_app()
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 403, in _adb_activate_app
+    self._adb_run(["shell", "am", "start", "-n", component], timeout=30)
+  File "C:\Users\stc_0\ydl_app_monitor\ydl_app_monitor\app_driver.py", line 397, in _adb_run
+    raise RuntimeError(f"adb command failed: {' '.join(command)}\n{completed.stderr.strip()}")
+RuntimeError: adb command failed: C:\Users\stc_0\Android\Sdk\platform-tools\adb.exe -s 10.162.29.237:41705 shell am start -n com.cxzapp.yidianling/.activity.SplashActivity
+adb.exe: device '10.162.29.237:41705' not found

@@ -1,0 +1,6 @@
+Appium-Python-Client>=4.0.0
+selenium>=4.20.0
+python-dotenv>=1.0.1
+streamlit>=1.35.0
+pandas>=2.0.0
+
